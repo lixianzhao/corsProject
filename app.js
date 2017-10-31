@@ -1,0 +1,13 @@
+let express = require('express');
+let app = express();
+let router = express.Router();
+let http = require('http');
+let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
+require('./routes/route')(router);
+app.use(express.static('public'));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+app.use(router);
+http.createServer(app).listen(80);
