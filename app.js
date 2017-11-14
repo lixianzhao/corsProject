@@ -8,6 +8,6 @@ require('./routes/route')(router);
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(cookieParser());
+app.use(cookieParser()); 
 app.use(router);
 http.createServer(app).listen(80);
